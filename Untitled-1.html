@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orbitando em 3D</title>
+  <style>
+    body {
+      background: #1C1C1C;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      perspective: 1000px; /* cria profundidade 3D */
+    }
+
+    .sphere {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      transform-style: preserve-3d;
+      animation: spin 30s linear infinite;
+    }
+
+    .sphere img {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: opacity 1s ease;
+    }
+
+    @keyframes spin {
+      from { transform: rotateY(0deg) rotateX(0deg); }
+      to { transform: rotateY(360deg) rotateX(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sphere" id="sphere">
+    <!-- 10 imagens orbitando -->
+    <img src="img1.jpg" alt="Imagem 1">
+    <img src="img2.jpg" alt="Imagem 2">
+    <img src="img3.jpg" alt="Imagem 3">
+    <img src="img4.jpg" alt="Imagem 4">
+    <img src="img5.jpg" alt="Imagem 5">
+    <img src="img6.jpg" alt="Imagem 6">
+    <img src="img7.jpg" alt="Imagem 7">
+    <img src="img8.jpg" alt="Imagem 8">
+    <img src="img9.jpg" alt="Imagem 9">
+    <img src="img10.jpg" alt="Imagem 10">
+  </div>
+
+  <script>
+    const sphere = document.getElementById("sphere");
+    const imgs = sphere.querySelectorAll("img");
+    const total = imgs.length
